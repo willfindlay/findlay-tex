@@ -4,5 +4,247 @@
 % Licensed under MIT license.
 % --------------------------------
 
+% general formatting
+\usepackage{float}
+\usepackage{listings}
+\usepackage[hang,bf]{caption}
+\usepackage{framed}
+\usepackage[section]{placeins}
+
+% colors
+\usepackage[dvipsnames,table]{xcolor}
+
+% typesetting of mathematics
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{siunitx}
+
+% crazy symbols
+\usepackage{pifont}
+
+% provides command for specific formatting of pages
+\usepackage{setspace}
+\usepackage{changepage}
+
+% change title styles if need be
+\usepackage[explicit]{titlesec}
+
+% counters for listings, etc.
+\usepackage{aliascnt}
+
+% execute command after next page break
+\usepackage{afterpage}
+
+% change counters for captions
+\usepackage{chngcntr}
+
+% better tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+
+% references to objects by name
+\usepackage{nameref}
+
+% options for itemizations and enumerations
+\usepackage{enumitem}
+
+% allow figs to break across multiple pages
+\allowdisplaybreaks
+
+% fancy headers/footers
+\makeatletter
+\usepackage{fancyhdr}
+\lhead{\@author}
+\chead{}
+\rhead{\@title}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\makeatother
+
+% set default placement of floating figs and tables
+\floatplacement{figure}{!htbp}
+\floatplacement{table}{!htbp}
+
+% options for listings
+\lstset{numbers=left,breaklines=true,frame=single,language=Python,captionpos=t,
+belowcaptionskip={1em},aboveskip=\intextsep,belowskip=\intextsep,showstringspaces=false,identifierstyle=\color{Blue},
+commentstyle={\color{OliveGreen}},keywordstyle={\bfseries\color{Orange}},stringstyle=\color{Purple},rulecolor=\color{black},
+mathescape=F}
+% caption margin for listings
+\setlength{\captionmargin}{0.5in}
+
+% make the page margins reasonable
+\newgeometry{margin=1in,headheight=1em}
+
+% define styles for plain, definition, and remark
+\newtheoremstyle{plain}
+{12pt}                    % ABOVESPACE
+{12pt}                    % BELOWSPACE
+{\itshape}                % BODYFONT
+{0pt}                     % INDENT (empty value is the same as 0pt)
+{\bfseries}               % HEADFONT
+{.}                       % HEADPUNCT
+{5pt plus 1pt minus 1pt}  % HEADSPACE
+{}                        % CUSTOM-HEAD-SPEC
+\newtheoremstyle{definition}
+{12pt}                    % ABOVESPACE
+{12pt}                    % BELOWSPACE
+{\normalfont}             % BODYFONT
+{0pt}                     % INDENT (empty value is the same as 0pt)
+{\bfseries}               % HEADFONT
+{.}                       % HEADPUNCT
+{5pt plus 1pt minus 1pt}  % HEADSPACE
+{}                        % CUSTOM-HEAD-SPEC
+\newtheoremstyle{remark}
+{12pt}                    % ABOVESPACE
+{12pt}                    % BELOWSPACE
+{\normalfont}             % BODYFONT
+{0pt}                     % INDENT (empty value is the same as 0pt)
+{\bfseries}               % HEADFONT
+{.}                       % HEADPUNCT
+{5pt plus 1pt minus 1pt}  % HEADSPACE
+{}                        % CUSTOM-HEAD-SPEC
+
+% set plain theoremstyle for the following
+\theoremstyle{plain}
+% define theorem
+\newtheorem{theorem}{Theorem}[section]
+\providecommand*{\theoremautorefname}{Theorem}
+% define lemma
+\newtheorem{lemma}{Lemma}[section]
+\providecommand*{\lemmaautorefname}{Lemma}
+% define claim
+\newtheorem{claim}{Claim}[section]
+\providecommand*{\claimautorefname}{Claim}
+% define corollary
+\newtheorem{corollary}{Corollary}[section]
+\providecommand*{\corollaryautorefname}{Corollary}
+% define proposition
+\newtheorem{proposition}{Proposition}[section]
+\providecommand*{\propositionautorefname}{Proposition}
+% define conjecture
+\newtheorem{conjecture}{Conjecture}[section]
+\providecommand*{\conjectureautorefname}{Conjecture}
+
+% set remark theoremstyle for the following:
+\theoremstyle{remark}
+% define observation
+\newtheorem{observation}{Observation}[section]
+\providecommand*{\observationautorefname}{Observation}
+% define remark
+\newtheorem{remark}{Remark}[section]
+\providecommand*{\remarkautorefname}{Remark}
+
+
+% set definition theoremstyle for the following:
+\theoremstyle{definition}
+% define example
+\newtheorem{example}{Example}[section]
+\providecommand*{\exampleautorefname}{Example}
+% define definition
+\newtheorem{definition}{Definition}[section]
+\providecommand*{\definitionautorefname}{Definition}
+
+% a blackbox command for math mode
+\newcommand{\blackbox}{\hfill$\blacksquare$}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+          \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% better labels for itemize
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{\ding{226}}
+\renewcommand{\labelitemiii}{\small$\blacksquare$}
+\renewcommand{\labelitemiv}{\small$\triangleright$}
+
+% change paragraph title format
+\titleformat{\paragraph} % command to change
+[runin]                  % shape  (runin, etc.)
+{\bfseries}              % format (bfseries, itshape, etc.)
+{}                       % label  (thesection, thesubsection, etc.)
+{0em}                    % separation between label and body
+{#1}        % before the body
+[.]                       % after the body
+
+% change subparagraph title format
+\titleformat{\subparagraph} % command to change
+[runin]                  % shape  (runin, etc.)
+{\itshape}              % format (bfseries, itshape, etc.)
+{}                       % label  (thesection, thesubsection, etc.)
+{0em}                    % separation between label and body
+{#1}        % before the body
+[.]                       % after the body
+
+% I hate typing lstinputlisting
+\let\lil\lstinputlisting
+
+% format hyperlinks (and only hyperlinks!) blue
+\hypersetup{colorlinks, allcolors=., urlcolor=blue}
+
+% much better line numbers for input listings
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\makeatletter
+\patchcmd{\lst@GLI@}% <command>
+{\def\lst@firstline{#1\relax}}% <search>
+{\def\lst@firstline{#1\relax}\def\lst@firstnumber{#1\relax}}% <replace>
+{\typeout{listings firstnumber=firstline}}% <success>
+{\typeout{listings firstnumber not set}}% <failure>
+\makeatother
+
+% change list of listings name
+\renewcommand\lstlistlistingname{List of Listings}
+% per-section counters for figures and tables
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% change autoref names
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Subsection}
+\renewcommand{\subsubsectionautorefname}{Subsection}
+\renewcommand{\paragraphautorefname}{}
+\renewcommand{\subparagraphautorefname}{}
+
+\makeatletter
+\renewcommand{\theparagraph}{\bfseries \@currentlabelname}
+\renewcommand{\thesubparagraph}{\itshape \@currentlabelname}
+\makeatother
+
+% change line spacing between itemized items
+\setitemize{itemsep=0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\thispagestyle{empty}
+\counterwithin{lstlisting}{section}
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{2}
+\thispagestyle{plain}
+\tableofcontents
+\newpage
+\thispagestyle{plain}
+\listoffigures
+\listoftables
+\lstlistoflistings
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\newpage
+\thispagestyle{empty}
+\section*{References}
 
 % vim: syntax=tex

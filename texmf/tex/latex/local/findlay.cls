@@ -208,7 +208,7 @@ stringstyle=\color{Plum!80},
 % References, URLs, etc.
 \RequirePackage{hyperref}
 % Colored links
-\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=green}
+\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
 
 % Autorefs for sections
 \renewcommand{\sectionautorefname}{Section}

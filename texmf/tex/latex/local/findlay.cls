@@ -26,6 +26,25 @@
 % Document will default to being untitled
 \title{Untitled}
 
+% Better maketitle
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE\scshape \@title \par}%
+    \vskip 0.5em%
+    {\large\bfseries
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 0.5em%
+    {\large \@date}
+  \end{center}%
+  \par
+  \vskip 2em}
+
 % Margins and paragraph indents
 \RequirePackage[margin=1in]{geometry}
 \setlength\parindent{15pt}

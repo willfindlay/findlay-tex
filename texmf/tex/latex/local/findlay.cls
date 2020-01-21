@@ -79,55 +79,62 @@
 \RequirePackage{tikz}
 
 % Listings and related settings
+\RequirePackage{lstautogobble}
+\RequirePackage{color}
+\RequirePackage{zi4}
 \RequirePackage{listings}
 \let\lil\lstinputlisting % Short hand for input listing
 \let\code\lstinline      % Short hand for inline listing
 \newcommand*{\FormatDigit}[1]{\textcolor{Blue}{#1}}
 \renewcommand\lstlistlistingname{List of Listings}
-\lstset{numbers=left,
-numberstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\fi,
-basicstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
-breaklines=true,
-backgroundcolor=\color{gray!20},
-frame=ltb,
-framerule=0pt,
-framexleftmargin=0.5em,
-xleftmargin=20pt,
-%xrightmargin=10pt,
-%framesep=10pt,
-captionpos=t,
-abovecaptionskip={0.5em},
-belowcaptionskip={0.5em},
-aboveskip=0.5em,
-showstringspaces=false,
-identifierstyle=\color{black},
-commentstyle={\color{OliveGreen!100}},
-keywordstyle={\color{Orange}},
-stringstyle=\color{Plum!80},
-% This used to make numbers blue but I think I want to turn it off...
-%literate={0}{{\FormatDigit{0}}}{1}%
-%             {1}{{\FormatDigit{1}}}{1}%
-%             {2}{{\FormatDigit{2}}}{1}%
-%             {3}{{\FormatDigit{3}}}{1}%
-%             {4}{{\FormatDigit{4}}}{1}%
-%             {5}{{\FormatDigit{5}}}{1}%
-%             {6}{{\FormatDigit{6}}}{1}%
-%             {7}{{\FormatDigit{7}}}{1}%
-%             {8}{{\FormatDigit{8}}}{1}%
-%             {9}{{\FormatDigit{9}}}{1}%
-%             {.0}{{\FormatDigit{.0}}}{2}% Following is to ensure that only periods
-%             {.1}{{\FormatDigit{.1}}}{2}% followed by a digit are changed.
-%             {.2}{{\FormatDigit{.2}}}{2}%
-%             {.3}{{\FormatDigit{.3}}}{2}%
-%             {.4}{{\FormatDigit{.4}}}{2}%
-%             {.5}{{\FormatDigit{.5}}}{2}%
-%             {.6}{{\FormatDigit{.6}}}{2}%
-%             {.7}{{\FormatDigit{.7}}}{2}%
-%             {.8}{{\FormatDigit{.8}}}{2}%
-%             {.9}{{\FormatDigit{.9}}}{2}%
-%             %{,}{{\FormatDigit{,}}{1}% depends if you want the "," in color
-%             {\ }{{ }}{1}% handle the space
-%             ,
+\lstset{
+    numbers=left,
+    autogobble,
+    columns=fullflexible,
+    numberstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\fi,
+    basicstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
+    breaklines=true,
+    backgroundcolor=\color{gray!10},
+    frame=l,
+    framerule=0pt,
+    framexleftmargin=0.5em,
+    framesep=0pt,
+    xleftmargin=12pt,
+    %xrightmargin=12pt,
+    breakatwhitespace=true,
+    captionpos=t,
+    abovecaptionskip={0.5em},
+    belowcaptionskip={-0.5em},
+    aboveskip=0.5em,
+    showstringspaces=false,
+    identifierstyle=\color{black},
+    commentstyle={\color{OliveGreen!100}},
+    keywordstyle={\color{Orange}},
+    stringstyle=\color{Plum!80},
+    % This used to make numbers blue but I think I want to turn it off...
+    %literate={0}{{\FormatDigit{0}}}{1}%
+    %             {1}{{\FormatDigit{1}}}{1}%
+    %             {2}{{\FormatDigit{2}}}{1}%
+    %             {3}{{\FormatDigit{3}}}{1}%
+    %             {4}{{\FormatDigit{4}}}{1}%
+    %             {5}{{\FormatDigit{5}}}{1}%
+    %             {6}{{\FormatDigit{6}}}{1}%
+    %             {7}{{\FormatDigit{7}}}{1}%
+    %             {8}{{\FormatDigit{8}}}{1}%
+    %             {9}{{\FormatDigit{9}}}{1}%
+    %             {.0}{{\FormatDigit{.0}}}{2}% Following is to ensure that only periods
+    %             {.1}{{\FormatDigit{.1}}}{2}% followed by a digit are changed.
+    %             {.2}{{\FormatDigit{.2}}}{2}%
+    %             {.3}{{\FormatDigit{.3}}}{2}%
+    %             {.4}{{\FormatDigit{.4}}}{2}%
+    %             {.5}{{\FormatDigit{.5}}}{2}%
+    %             {.6}{{\FormatDigit{.6}}}{2}%
+    %             {.7}{{\FormatDigit{.7}}}{2}%
+    %             {.8}{{\FormatDigit{.8}}}{2}%
+    %             {.9}{{\FormatDigit{.9}}}{2}%
+    %             %{,}{{\FormatDigit{,}}{1}% depends if you want the "," in color
+    %             {\ }{{ }}{1}% handle the space
+    %             ,
 }
 % define "none" language for lstlistings
 \lstdefinelanguage{none}{
@@ -182,6 +189,31 @@ stringstyle=\color{Plum!80},
 % Better spacing for items
 \RequirePackage{enumitem}
 \setitemize{itemsep=0em}
+\setlistdepth{20}
+\renewlist{itemize}{itemize}{20}
+\renewlist{enumerate}{enumerate}{20}
+% Provide default
+\setlist[itemize]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,1]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,2]{label=\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
+\setlist[itemize,3]{label=\raisebox{.05ex}\textopenbullet}
+\setlist[itemize,4]{label=\raisebox{.25ex}{$\scriptscriptstyle \vartriangleright$}}
+\setlist[itemize,5]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,6]{label=\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
+\setlist[itemize,7]{label=\raisebox{.05ex}\textopenbullet}
+\setlist[itemize,8]{label=\raisebox{.25ex}{$\scriptscriptstyle \vartriangleright$}}
+\setlist[itemize,9]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,10]{label=\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
+\setlist[itemize,11]{label=\raisebox{.05ex}\textopenbullet}
+\setlist[itemize,12]{label=\raisebox{.25ex}{$\scriptscriptstyle \vartriangleright$}}
+\setlist[itemize,13]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,14]{label=\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
+\setlist[itemize,15]{label=\raisebox{.05ex}\textopenbullet}
+\setlist[itemize,16]{label=\raisebox{.25ex}{$\scriptscriptstyle \vartriangleright$}}
+\setlist[itemize,17]{label=\raisebox{.05ex}\textbullet}
+\setlist[itemize,18]{label=\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
+\setlist[itemize,19]{label=\raisebox{.05ex}\textopenbullet}
+\setlist[itemize,20]{label=\raisebox{.25ex}{$\scriptscriptstyle \vartriangleright$}}
 
 % Paragraph and subparagraph spacing
 \titlespacing*{\paragraph}{0pt}{1.3em}{1em}

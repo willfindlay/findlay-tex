@@ -1,6 +1,7 @@
 .PHONY: install
 
-TEXDIR=$(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local
+# TEXDIR=$(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local
+TEXDIR=${HOME}/texmf/tex/latex/local
 TEXFILES=$(shell find ./ -type f \( -iname \*.cls -o -iname \*.sty \))
 
 install:

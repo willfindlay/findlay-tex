@@ -34,12 +34,14 @@
   \begin{center}%
   \let \footnote \thanks
     {\LARGE\scshape \@title \par}%
-    \vskip 0.5em%
+    \vskip 1em%
+    by
+    \vskip 1em%
     {\large\bfseries
       \begin{tabular}[t]{c}%
         \@author
       \end{tabular}\par}%
-    \vskip 0.5em%
+    \vskip 1em%
     {\large \@date}
   \end{center}%
   \par

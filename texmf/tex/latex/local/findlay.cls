@@ -106,7 +106,7 @@
     breakatwhitespace=true,
     captionpos=t,
     abovecaptionskip={0.5em},
-    belowcaptionskip={-0.5em},
+    belowcaptionskip={0.5em},
     aboveskip=0.5em,
     showstringspaces=false,
     identifierstyle=\color{black},

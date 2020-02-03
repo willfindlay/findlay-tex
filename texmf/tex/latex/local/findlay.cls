@@ -75,7 +75,7 @@
 \RequirePackage[hang,bf,font=small]{caption}
 \RequirePackage{framed}
 \RequirePackage[section]{placeins}
-\RequirePackage[dvipsnames,table]{xcolor}
+\RequirePackage[dvipsnames,table,svgnames]{xcolor}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{pifont}
 \RequirePackage{tikz}
@@ -142,6 +142,16 @@
 \lstdefinelanguage{none}{
   identifierstyle=
 }
+% define "diff" language for lstlistings
+\definecolor{diffstart}{named}{Grey}
+\definecolor{diffincl}{named}{Green}
+\definecolor{diffrem}{named}{OrangeRed}
+\lstdefinelanguage{diff}{
+    basicstyle=\ttfamily\small,
+    morecomment=[f][\color{diffstart}]{@@},
+    morecomment=[f][\color{diffincl}]{+\ },
+    morecomment=[f][\color{diffrem}]{-\ },
+  }
 
 % Use math packages
 \RequirePackage{amsmath, amsfonts, amssymb, amsthm}

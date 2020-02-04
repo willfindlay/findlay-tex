@@ -149,8 +149,8 @@
 \lstdefinelanguage{diff}{
     basicstyle=\ttfamily\small,
     morecomment=[f][\color{diffstart}]{@@},
-    morecomment=[f][\color{diffincl}]{+\ },
-    morecomment=[f][\color{diffrem}]{-\ },
+    morecomment=[f][\color{diffincl}]{+},
+    morecomment=[f][\color{diffrem}]{-},
   }
 
 % Use math packages

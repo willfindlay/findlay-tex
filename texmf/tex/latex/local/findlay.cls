@@ -90,6 +90,7 @@
 \newcommand*{\FormatDigit}[1]{\textcolor{Blue}{#1}}
 \renewcommand\lstlistlistingname{List of Listings}
 \lstset{
+    keepspaces=true,
     numbers=left,
     autogobble,
     columns=fullflexible,

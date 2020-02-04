@@ -110,10 +110,10 @@
     belowcaptionskip={0.5em},
     aboveskip=0.5em,
     showstringspaces=false,
-    identifierstyle=\color{black},
-    commentstyle={\color{OliveGreen!100}},
-    keywordstyle={\color{Orange}},
-    stringstyle=\color{Plum!80},
+    identifierstyle=\color{DarkBlue},
+    commentstyle={\color{DarkGreen}},
+    keywordstyle={\color{OrangeRed}},
+    stringstyle=\color{Purple},
     % This used to make numbers blue but I think I want to turn it off...
     %literate={0}{{\FormatDigit{0}}}{1}%
     %             {1}{{\FormatDigit{1}}}{1}%

@@ -110,7 +110,7 @@
     belowcaptionskip={0.5em},
     aboveskip=0.5em,
     showstringspaces=false,
-    identifierstyle=\color{DarkBlue},
+    identifierstyle=\color{Black},
     commentstyle={\color{DarkGreen}},
     keywordstyle={\color{OrangeRed}},
     stringstyle=\color{Purple},

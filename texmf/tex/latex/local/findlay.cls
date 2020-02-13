@@ -235,7 +235,7 @@
 % Paragraph heading
 \titleformat{\paragraph} % command to change
 [runin]                  % shape  (runin, etc.)
-{\normalfont\bfseries\color{gray!160}}              % format (bfseries, itshape, etc.)
+{\normalfont\bfseries\color{gray!160}} % format (bfseries, itshape, etc.)
 {}                       % label  (thesection, thesubsection, etc.)
 {0em}                    % separation between label and body
 {#1}                     % before the body
@@ -244,7 +244,7 @@
 % Subparagraph heading
 \titleformat{\subparagraph} % command to change
 [runin]                     % shape  (runin, etc.)
-{\normalfont\itshape\color{gray!160}}                  % format (bfseries, itshape, etc.)
+{\normalfont\itshape\color{gray!160}} % format (bfseries, itshape, etc.)
 {}                          % label  (thesection, thesubsection, etc.)
 {0em}                       % separation between label and body
 {#1}                        % before the body
@@ -276,7 +276,7 @@
 \RequirePackage{makecell}
 
 % Use biblatex for references
-\RequirePackage[backend=biber, style=ieee]{biblatex}
+\RequirePackage[backend=biber, style=ieee, maxbibnames=4, minbibnames=3]{biblatex}
 % Sort it properly, no dashes for consecutive authors
 \ExecuteBibliographyOptions{sorting=nyt, dashed=false}
 

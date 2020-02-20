@@ -153,6 +153,10 @@
     morecomment=[f][\color{diffincl}]{+},
     morecomment=[f][\color{diffrem}]{-},
   }
+\patchcmd\lst@MakeCaption
+  {\ignorespaces}
+  {\linespread{1}\selectfont\ignorespaces}
+  {}{}
 
 % Use math packages
 \RequirePackage{amsmath, amsfonts, amssymb, amsthm}

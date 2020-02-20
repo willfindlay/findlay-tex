@@ -280,7 +280,7 @@
 \RequirePackage{makecell}
 
 % Use biblatex for references
-\RequirePackage[backend=biber, style=ieee, maxbibnames=4, minbibnames=3]{biblatex}
+\RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=4, minbibnames=3]{biblatex}
 % Sort it properly, no dashes for consecutive authors
 \ExecuteBibliographyOptions{sorting=nyt, dashed=false}
 

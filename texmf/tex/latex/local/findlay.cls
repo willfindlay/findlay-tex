@@ -21,7 +21,7 @@
     \global\let\@title\@empty
 }{}{}{}
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+  \apptocmd{\@title}{\par \vspace{0.8em} {\large #1 \par}}{}{}
 }
 
 % Document will default to being by me
@@ -39,7 +39,6 @@
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
 \def\fps@figure{htbp}
-
 \newcommand{\passthrough}[1]{#1}
 
 % Better maketitle

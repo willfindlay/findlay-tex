@@ -48,12 +48,11 @@
   \vskip 2em}
 
 % Margins and paragraph indents
-\RequirePackage[margin=1in]{geometry}
+\RequirePackage[margin=1in, columnsep=0.3in, headheight=15pt]{geometry}
 \setlength\parindent{15pt}
 
 % Fancy headers
 \RequirePackage{fancyhdr}
-\setlength{\headheight}{15pt}
 \renewcommand{\headrulewidth}{0.4pt}
 % Header
 \lhead{\small\scshape\nouppercase\leftmark}

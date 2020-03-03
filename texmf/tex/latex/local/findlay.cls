@@ -20,11 +20,27 @@
     \global\let\@date\@empty
     \global\let\@title\@empty
 }{}{}{}
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
 
 % Document will default to being by me
 \author{William Findlay}
 % Document will default to being untitled
 \title{Untitled}
+
+% Pandoc Stuff
+\RequirePackage{graphicx}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+
+\newcommand{\passthrough}[1]{#1}
 
 % Better maketitle
 \def\@maketitle{%
@@ -34,8 +50,8 @@
   \begin{center}%
   \let \footnote \thanks
     {\LARGE\scshape \@title \par}%
-    \vskip 1em%
-    by
+    %\vskip 1em%
+    %by
     \vskip 1em%
     {\large\bfseries
       \begin{tabular}[t]{c}%
@@ -257,6 +273,9 @@
 \RequirePackage{hyperref}
 % Colored links
 \hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
+% Disable monospaced font for URLs
+\urlstyle{same}
+\PassOptionsToPackage{hyphens}{url}
 
 % Autorefs for sections
 \renewcommand{\sectionautorefname}{Section}
@@ -282,6 +301,7 @@
 \RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=4, minbibnames=3]{biblatex}
 % Sort it properly, no dashes for consecutive authors
 \ExecuteBibliographyOptions{sorting=nyt, dashed=false}
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
 
 % Appendix stuff
 \newcommand{\appendixnumberline}[1]{Appendix\space}

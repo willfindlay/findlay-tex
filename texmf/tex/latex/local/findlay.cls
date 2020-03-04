@@ -86,7 +86,7 @@
 \RequirePackage[explicit]{titlesec}
 \RequirePackage{aliascnt}
 \RequirePackage{float}
-\RequirePackage[hang,bf,font=small]{caption}
+\RequirePackage[bf,font=small]{caption}
 \RequirePackage{framed}
 \RequirePackage[section]{placeins}
 \RequirePackage[dvipsnames,table,svgnames]{xcolor}
@@ -268,19 +268,6 @@
 {#1}                        % before the body
 [.]                         % after the body
 
-% References, URLs, etc.
-\RequirePackage{hyperref}
-% Colored links
-\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
-% Disable monospaced font for URLs
-\urlstyle{same}
-\PassOptionsToPackage{hyphens}{url}
-
-% Autorefs for sections
-\renewcommand{\sectionautorefname}{Section}
-\renewcommand{\subsectionautorefname}{Subsection}
-\renewcommand{\subsubsectionautorefname}{Subsection}
-
 % Table stuff
 \RequirePackage{booktabs}
 \RequirePackage{longtable}
@@ -296,11 +283,24 @@
 \RequirePackage[normalem]{ulem}
 \RequirePackage{makecell}
 
+% References, URLs, etc.
+\RequirePackage{url}
+\RequirePackage[unicode, breaklinks=true]{hyperref}
+% Colored links
+\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
+% Disable monospaced font for URLs
+\urlstyle{same}
+
 % Use biblatex for references
 \RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=4, minbibnames=3]{biblatex}
 % Sort it properly, no dashes for consecutive authors
 \ExecuteBibliographyOptions{sorting=nyt, dashed=false}
 \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+
+% Autorefs for sections
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Subsection}
+\renewcommand{\subsubsectionautorefname}{Subsection}
 
 % Appendix stuff
 \newcommand{\appendixnumberline}[1]{Appendix\space}

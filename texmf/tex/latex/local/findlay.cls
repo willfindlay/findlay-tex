@@ -212,6 +212,9 @@
 \counterwithin{lstlisting}{section}
 }
 
+% Tight lists in pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 % Better bullet points
 \renewcommand{\labelitemi}{\raisebox{.05ex}\textbullet}
 \renewcommand{\labelitemii}{\raisebox{.25ex}{$\scriptscriptstyle \blacktriangleright$}}
@@ -290,6 +293,8 @@
 \hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
 % Disable monospaced font for URLs
 \urlstyle{same}
+% Prevent overfull lines
+\setlength{\emergencystretch}{3em}
 
 % Use biblatex for references
 \RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=4, minbibnames=3]{biblatex}

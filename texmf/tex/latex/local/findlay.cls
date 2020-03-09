@@ -286,6 +286,9 @@
 \RequirePackage[normalem]{ulem}
 \RequirePackage{makecell}
 
+\BeforeBeginEnvironment{tabular}{\begingroup\small}
+\AfterEndEnvironment{tabular}{\endgroup}
+
 % References, URLs, etc.
 \RequirePackage{url}
 \RequirePackage[unicode, breaklinks=true]{hyperref}

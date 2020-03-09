@@ -311,10 +311,4 @@
 \renewcommand{\subsubsectionautorefname}{Subsection}
 
 % Appendix stuff
-\newcommand{\appendixnumberline}[1]{Appendix\space}
-\let\oldappendix\appendix
-\renewcommand{\appendix}{%
-  \addtocontents{toc}{\let\protect\numberline\protect\appendixnumberline}%
-  \renewcommand{\@seccntformat}[1]{Appendix~\csname the##1\endcsname\quad}%
-  \oldappendix
-}
+\RequirePackage[title, titletoc, page, toc]{appendix}

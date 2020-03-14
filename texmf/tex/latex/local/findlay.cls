@@ -292,8 +292,29 @@
 % References, URLs, etc.
 \RequirePackage{url}
 \RequirePackage[unicode, breaklinks=true]{hyperref}
+% footnotecolor
+\makeatletter
+\def\@footnotecolor{red}
+\define@key{Hyp}{footnotecolor}{%
+ \HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+\def\@footnotemark{%
+    \leavevmode
+    \ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+    \stepcounter{Hfootnote}%
+    \global\let\Hy@saved@currentHref\@currentHref
+    \hyper@makecurrent{Hfootnote}%
+    \global\let\Hy@footnote@currentHref\@currentHref
+    \global\let\@currentHref\Hy@saved@currentHref
+    \hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+    \@makefnmark
+    \hyper@linkend
+    \ifhmode\spacefactor\@x@sf\fi
+    \relax
+  }%
+\makeatother
 % Colored links
-\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green}
+\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green, footnotecolor=Green}
 % Disable monospaced font for URLs
 \urlstyle{same}
 % Prevent overfull lines

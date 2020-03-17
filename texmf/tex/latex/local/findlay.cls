@@ -86,7 +86,7 @@
 \RequirePackage[explicit]{titlesec}
 \RequirePackage{aliascnt}
 \RequirePackage{float}
-\RequirePackage[bf,font=small]{caption}
+\RequirePackage[bf,font=small,margin=1cm]{caption}
 \RequirePackage{framed}
 \RequirePackage[section]{placeins}
 \RequirePackage[dvipsnames,table,svgnames]{xcolor}

@@ -328,8 +328,8 @@
 
 % Autorefs for sections
 \renewcommand{\sectionautorefname}{Section}
-\renewcommand{\subsectionautorefname}{Subsection}
-\renewcommand{\subsubsectionautorefname}{Subsection}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Section}
 
 % Appendix stuff
 \RequirePackage[title, titletoc, page, toc]{appendix}

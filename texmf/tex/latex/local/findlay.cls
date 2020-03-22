@@ -38,7 +38,7 @@
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htb
-\def\fps@figure{htb}
+\def\fps@figure{htb!}
 \newcommand{\passthrough}[1]{#1}
 
 % Better maketitle
@@ -200,8 +200,8 @@
 \makeatother
 
 % Default to intelligent float placement
-\floatplacement{figure}{!htb}
-\floatplacement{table}{!htb}
+\floatplacement{figure}{htb!}
+\floatplacement{table}{htb!}
 
 % Subcounters for figures and tables
 \RequirePackage{chngcntr}

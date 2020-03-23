@@ -41,6 +41,12 @@
 \def\fps@figure{htb!}
 \newcommand{\passthrough}[1]{#1}
 
+% Reposition captions automatically!
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=bottom}
+\floatsetup[listing]{capposition=top}
+\floatsetup[table]{capposition=top}
+
 % Better maketitle
 \def\@maketitle{%
   \newpage

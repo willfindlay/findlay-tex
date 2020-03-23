@@ -100,6 +100,9 @@
 \RequirePackage{pifont}
 \RequirePackage{tikz}
 
+% Table footnotes
+\usepackage{tablefootnote}
+
 % Listings and related settings
 \RequirePackage{lstautogobble}
 \RequirePackage{color}

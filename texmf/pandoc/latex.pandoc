@@ -24,6 +24,23 @@ $for(classoption)$
   $classoption$$sep$,
 $endfor$
 ]{$documentclass$}
+
+% Pandoc Stuff
+\makeatletter
+\RequirePackage{listings}
+\RequirePackage{graphicx}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htb
+\def\fps@figure{htb!}
+\newcommand{\passthrough}[1]{#1}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatother
+
 $for(header-includes)$
 $header-includes$
 $endfor$
@@ -59,9 +76,6 @@ $endif$
 
 
 \begin{document}
-$if(title)$
-\maketitle
-$endif$
 
 $body$
 

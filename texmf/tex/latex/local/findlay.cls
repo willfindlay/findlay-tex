@@ -29,18 +29,6 @@
 % Document will default to being untitled
 \title{Untitled}
 
-% Pandoc Stuff
-\RequirePackage{graphicx}
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htb
-\def\fps@figure{htb!}
-\newcommand{\passthrough}[1]{#1}
-
 % Reposition captions automatically!
 \RequirePackage{floatrow}
 \floatsetup[figure]{capposition=bottom}
@@ -96,16 +84,32 @@
 \RequirePackage{framed}
 \RequirePackage[section]{placeins}
 \RequirePackage[dvipsnames,table,svgnames]{xcolor}
+\RequirePackage{color}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{pifont}
 \RequirePackage{tikz}
+
+% Add ACM Colors
+\definecolor[named]{ACMBlue}{cmyk}{1,0.1,0,0.1}
+\definecolor[named]{ACMYellow}{cmyk}{0,0.16,1,0}
+\definecolor[named]{ACMOrange}{cmyk}{0,0.42,1,0.01}
+\definecolor[named]{ACMRed}{cmyk}{0,0.90,0.86,0}
+\definecolor[named]{ACMLightBlue}{cmyk}{0.49,0.01,0,0}
+\definecolor[named]{ACMGreen}{cmyk}{0.20,0,1,0.19}
+\definecolor[named]{ACMPurple}{cmyk}{0.55,1,0,0.15}
+\definecolor[named]{ACMDarkBlue}{cmyk}{1,0.58,0,0.21}
+
+% Custom symbols
+\definecolor{cmark-color}{HTML}{2ECC40}
+\definecolor{xmark-color}{HTML}{FF4136}
+\newcommand{\cmark}{{\color{cmark-color}\ding{51}}}
+\newcommand{\xmark}{{\color{xmark-color}\ding{55}}}
 
 % Table footnotes
 \usepackage{tablefootnote}
 
 % Listings and related settings
 \RequirePackage{lstautogobble}
-\RequirePackage{color}
 \RequirePackage{zi4}
 \RequirePackage{listings}
 \let\lil\lstinputlisting % Short hand for input listing
@@ -182,56 +186,8 @@
   {”}{{''}}1
 }
 \lstset{style=listing_style}
-%\lstset{
-%    keepspaces=true,
-%    numbers=left,
-%    autogobble,
-%    columns=fullflexible,
-%    numberstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\fi,
-%    basicstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
-%    breaklines=true,
-%    backgroundcolor=\color{gray!10},
-%    frame=l,
-%    framerule=0pt,
-%    framexleftmargin=0.5em,
-%    framesep=0pt,
-%    xleftmargin=12pt,
-%    %xrightmargin=12pt,
-%    breakatwhitespace=true,
-%    captionpos=t,
-%    abovecaptionskip={0.5em},
-%    belowcaptionskip={0.5em},
-%    aboveskip=0.5em,
-%    showstringspaces=false,
-%    identifierstyle=\color{Black},
-%    commentstyle={\color{DarkGreen}},
-%    keywordstyle={\color{OrangeRed}},
-%    stringstyle=\color{Purple},
-%    % This used to make numbers blue but I think I want to turn it off...
-%    %literate={0}{{\FormatDigit{0}}}{1}%
-%    %             {1}{{\FormatDigit{1}}}{1}%
-%    %             {2}{{\FormatDigit{2}}}{1}%
-%    %             {3}{{\FormatDigit{3}}}{1}%
-%    %             {4}{{\FormatDigit{4}}}{1}%
-%    %             {5}{{\FormatDigit{5}}}{1}%
-%    %             {6}{{\FormatDigit{6}}}{1}%
-%    %             {7}{{\FormatDigit{7}}}{1}%
-%    %             {8}{{\FormatDigit{8}}}{1}%
-%    %             {9}{{\FormatDigit{9}}}{1}%
-%    %             {.0}{{\FormatDigit{.0}}}{2}% Following is to ensure that only periods
-%    %             {.1}{{\FormatDigit{.1}}}{2}% followed by a digit are changed.
-%    %             {.2}{{\FormatDigit{.2}}}{2}%
-%    %             {.3}{{\FormatDigit{.3}}}{2}%
-%    %             {.4}{{\FormatDigit{.4}}}{2}%
-%    %             {.5}{{\FormatDigit{.5}}}{2}%
-%    %             {.6}{{\FormatDigit{.6}}}{2}%
-%    %             {.7}{{\FormatDigit{.7}}}{2}%
-%    %             {.8}{{\FormatDigit{.8}}}{2}%
-%    %             {.9}{{\FormatDigit{.9}}}{2}%
-%    %             %{,}{{\FormatDigit{,}}{1}% depends if you want the "," in color
-%    %             {\ }{{ }}{1}% handle the space
-%    %             ,
-%}
+
+% Fix listings captions
 \patchcmd\lst@MakeCaption
   {\ignorespaces}
   {\linespread{1}\selectfont\ignorespaces}
@@ -354,6 +310,8 @@
 % Small font in tables
 \BeforeBeginEnvironment{tabular}{\begingroup\small}
 \AfterEndEnvironment{tabular}{\endgroup}
+\BeforeBeginEnvironment{longtable}{\begingroup\small}
+\AfterEndEnvironment{longtable}{\endgroup}
 
 % References, URLs, etc.
 \RequirePackage{url}
@@ -380,7 +338,7 @@
   }%
 \makeatother
 % Colored links
-\hypersetup{colorlinks, allcolors=., urlcolor=blue, citecolor=Green, footnotecolor=Green}
+\hypersetup{colorlinks, allcolors=., linkcolor=ACMPurple, urlcolor=ACMBlue, citecolor=ACMPurple, footnotecolor=ACMPurple}
 % Disable monospaced font for URLs
 \urlstyle{same}
 % Prevent overfull lines

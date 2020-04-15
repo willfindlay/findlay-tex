@@ -20,14 +20,19 @@
     \global\let\@date\@empty
     \global\let\@title\@empty
 }{}{}{}
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par \vspace{0.8em} {\large #1 \par}}{}{}
+% Add subtitle to \maketitle if not already defined
+\providecommand{\subtitle}[1]{
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 
 % Document will default to being by me
 \author{William Findlay}
 % Document will default to being untitled
 \title{Untitled}
+
+\usepackage{authblk}
+\renewcommand\Authfont{\large\bfseries}
+\renewcommand\Affilfont{\normalfont\itshape}
 
 % Reposition captions automatically!
 \RequirePackage{floatrow}
@@ -63,14 +68,11 @@
 % Fancy headers
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.4pt}
+\fancyhf{}
 % Header
-\lhead{\small\scshape\nouppercase\leftmark}
-\chead{}
-\rhead{\small\itshape \@author}
+\fancyhead[RE,LO]{\small\scshape\nouppercase\leftmark}
 % Footer
-\lfoot{}
-\cfoot{\thepage}
-\rfoot{}
+\fancyfoot[CE,CO]{\thepage}
 \pagestyle{fancy}
 
 % Some generic packages
@@ -148,8 +150,8 @@
   xleftmargin      = 3.7em,
   framexleftmargin = 3.5em,
   backgroundcolor  = \color{listing-background},
-  numberstyle=\color{listing-numbers}\ttfamily\small\lst@ifdisplaystyle\scriptsize\fi,
-  basicstyle=\ttfamily\small\lst@ifdisplaystyle\scriptsize\singlespacing\fi,
+  numberstyle=\color{listing-numbers}\ttfamily\small\lst@ifdisplaystyle\footnotesize\fi,
+  basicstyle=\ttfamily\small\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
   breaklines       = true,
   frame            = single,
   framesep         = 0.19em,
@@ -308,9 +310,10 @@
 \renewcommand{\arraystretch}{1.15}
 
 % Small font in tables
-\BeforeBeginEnvironment{tabular}{\begingroup\small}
+\let\tablesize\small
+\BeforeBeginEnvironment{tabular}{\begingroup\tablesize}
 \AfterEndEnvironment{tabular}{\endgroup}
-\BeforeBeginEnvironment{longtable}{\begingroup\small}
+\BeforeBeginEnvironment{longtable}{\begingroup\tablesize}
 \AfterEndEnvironment{longtable}{\endgroup}
 
 % References, URLs, etc.
@@ -357,3 +360,5 @@
 
 % Appendix stuff
 \RequirePackage[title, titletoc, page, toc]{appendix}
+
+% vim:syn=tex:filetype=tex

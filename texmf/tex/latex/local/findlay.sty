@@ -126,6 +126,8 @@
 \fancyhead[L]{\nouppercase\MyTitle} % book title
 \fancyhead[R]{\nouppercase\MyAuthor} % author name
 
+\setlength{\headheight}{1.1em}
+
 % Set table of contents depth to 3
 \setcounter{tocdepth}{3}
 
@@ -186,6 +188,13 @@
 % Sort it properly, no dashes for consecutive authors
 \ExecuteBibliographyOptions{sorting=nyt,dashed=false}
 \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+
+% Better abstract
+\renewenvironment{abstract}{%
+\hfill\begin{minipage}{0.95\textwidth}
+\small\textbf{Abstract}\vspace{-0.8em}\\
+\rule{\textwidth}{0.1pt}}
+{\vspace{-0.6em}\par\noindent\rule{\textwidth}{0.1pt}\end{minipage}\vspace{1em}}
 
 % Commands
 \providecommand{\todo}[1]{{\bfseries\color{ACMRed}[#1]}}

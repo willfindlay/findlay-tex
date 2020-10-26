@@ -126,7 +126,7 @@
 \fancyhead[L]{\nouppercase\MyTitle} % book title
 \fancyhead[R]{\nouppercase\MyAuthor} % author name
 
-\setlength{\headheight}{1.1em}
+\setlength{\headheight}{1.3em}
 
 % Set table of contents depth to 3
 \setcounter{tocdepth}{3}
@@ -190,11 +190,13 @@
 \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
 
 % Better abstract
-\renewenvironment{abstract}{%
-\hfill\begin{minipage}{0.95\textwidth}
-\small\textbf{Abstract}\vspace{-0.8em}\\
-\rule{\textwidth}{0.1pt}}
-{\vspace{-0.6em}\par\noindent\rule{\textwidth}{0.1pt}\end{minipage}\vspace{1em}}
+%\renewenvironment{abstract}{%
+%\begin{center}
+%\begin{minipage}{0.85\textwidth}
+%    \rule{\textwidth}{0.1pt}
+%    \small\textbf{Abstract}\\
+%}
+%{\vspace{-0.6em}\par\noindent\rule{\textwidth}{0.1pt}\end{minipage}\vspace{1em}\end{center}}
 
 % Commands
 \providecommand{\todo}[1]{{\bfseries\color{ACMRed}[#1]}}

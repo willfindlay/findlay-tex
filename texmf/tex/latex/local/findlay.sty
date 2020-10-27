@@ -138,6 +138,15 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{rotating}
+\RequirePackage{adjustbox}
+\RequirePackage{array}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{45}{1em}}}%
 
 \RequirePackage{wasysym}
 \newcommand{\fullc}{\CIRCLE}
@@ -185,8 +194,8 @@
 \setcounter{secnumdepth}{4}
 
 \RequirePackage{titlesec}
-\titlespacing{\paragraph}{\parindent}{0pt}{1em}
-\titlespacing{\subparagraph}{\parindent}{0pt}{1em}
+\titlespacing{\paragraph}{0pt}{1em}{1em}
+\titlespacing{\subparagraph}{\parskip}{0pt}{1em}
 \titleformat*{\subparagraph}{\itshape}
 
 % biblatex

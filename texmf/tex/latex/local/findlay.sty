@@ -38,6 +38,9 @@
 
 % Better enumerations
 \usepackage[shortlabels,inline]{enumitem}
+\setlist[enumerate]{
+  leftmargin=*
+}
 
 % Code listings
 \RequirePackage{listings}
@@ -69,6 +72,23 @@
     morecomment=[f][\color{diffstart}]{@@},
     morecomment=[f][\color{diffincl}]{+},
     morecomment=[f][\color{diffrem}]{-},
+}
+
+% yaml language for listings
+\newcommand\YAMLkeystyle{\bfseries\color{listing-keyword-3}}
+\newcommand\YAMLcolonstyle{\bfseries\color{listing-keyword-3}}
+\newcommand\YAMLvaluestyle{\normalfont\ttfamily\color{listing-string}}
+\lstdefinelanguage{yaml}{
+  keywords={true,false,null,y,n},
+  basicstyle=\singlespacing\footnotesize\ttfamily\YAMLkeystyle,
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  stringstyle=\YAMLvaluestyle,
+  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+  moredelim=**[l][\YAMLvaluestyle]{-},   % switch to value style at -
+  morestring=[b]',
+  morestring=[b]",
 }
 
 % Set default listings style
@@ -207,19 +227,11 @@
 \titleformat*{\subparagraph}{\itshape}
 
 % biblatex
-\RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=4, minbibnames=1]{biblatex}
-% Sort it properly, no dashes for consecutive authors
-\ExecuteBibliographyOptions{sorting=nyt,dashed=false}
-\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+\RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=9999, minbibnames=1, sorting=nyt, dashed=false]{biblatex}
 
-% Better abstract
-%\renewenvironment{abstract}{%
-%\begin{center}
-%\begin{minipage}{0.85\textwidth}
-%    \rule{\textwidth}{0.1pt}
-%    \small\textbf{Abstract}\\
-%}
-%{\vspace{-0.6em}\par\noindent\rule{\textwidth}{0.1pt}\end{minipage}\vspace{1em}\end{center}}
+% Magic to stop overfull hbox in bibliography!
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+\emergencystretch=1em
 
 % Commands
 \providecommand{\todo}[1]{{\bfseries\color{ACMRed}[#1]}}

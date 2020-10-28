@@ -42,6 +42,8 @@
 % Code listings
 \RequirePackage{listings}
 
+\lstnewenvironment{listing}[1][]{\lstset{#1}}{}
+
 \definecolor{listing-background}{HTML}{F7F7F7}
 \definecolor{listing-rule}{HTML}{B3B2B3}
 \definecolor{listing-numbers}{HTML}{B3B2B3}
@@ -72,9 +74,13 @@
 % Set default listings style
 \lstdefinestyle{listing_style}{
     language         = none,
-    numbers          = left,
-    xleftmargin      = 3.7em,
-    framexleftmargin = 3.5em,
+    %numbers          = left,
+    %xleftmargin      = 3.7em,
+    %framexleftmargin = 3.5em,
+    xleftmargin      = 1em,
+    framexleftmargin = 1em,
+    xrightmargin      = 1em,
+    framexrightmargin = 1em,
     backgroundcolor  = \color{listing-background},
     numberstyle      = \color{listing-numbers}\ttfamily\normalsize\lst@ifdisplaystyle\footnotesize\fi,
     basicstyle       = \ttfamily\normalsize\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
@@ -84,10 +90,10 @@
     rulecolor        = \color{listing-rule},
     frameround       = ffff,
     tabsize          = 4,
-    aboveskip        = 0.5em,
+    aboveskip        = 0.1em,
     belowskip        = 0.1em,
-    abovecaptionskip = 0em,
-    belowcaptionskip = 0.5em,
+    abovecaptionskip = 0.5em,
+    belowcaptionskip = 0em,
     keywordstyle     = {\color{listing-keyword}\bfseries},
     keywordstyle     = {[2]\color{listing-keyword-2}\bfseries},
     keywordstyle     = {[3]\color{listing-keyword-3}\bfseries\itshape},

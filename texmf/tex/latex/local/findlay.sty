@@ -29,6 +29,8 @@
 
 % Add \cref and \Cref
 \usepackage{cleveref}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
 
 % Add \enquote
 \usepackage{csquotes}
@@ -82,7 +84,7 @@
 \newcommand\YAMLvaluestyle{\normalfont\ttfamily\color{listing-string}}
 \lstdefinelanguage{yaml}{
   keywords={true,false,null,y,n},
-  basicstyle=\singlespacing\footnotesize\ttfamily\YAMLkeystyle,
+  basicstyle = \YAMLkeystyle\ttfamily\normalsize\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
   sensitive=false,
   comment=[l]{\#},
   morecomment=[s]{/*}{*/},
@@ -112,10 +114,10 @@
     rulecolor        = \color{listing-rule},
     frameround       = ffff,
     tabsize          = 4,
-    aboveskip        = 0.1em,
-    belowskip        = 0.1em,
-    abovecaptionskip = 0.5em,
-    belowcaptionskip = 0em,
+    aboveskip        = 0.5em,
+    belowskip        = 0.5em,
+    abovecaptionskip = 0em,
+    belowcaptionskip = 0.5em,
     keywordstyle     = {\color{listing-keyword}\bfseries},
     keywordstyle     = {[2]\color{listing-keyword-2}\bfseries},
     keywordstyle     = {[3]\color{listing-keyword-3}\bfseries\itshape},
@@ -202,7 +204,7 @@
 %\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 % Format captions
-\RequirePackage[bf,font=small,margin=1cm]{caption}
+\RequirePackage[bf,font={small,stretch=1},margin=1cm]{caption}
 
 % Reposition captions automatically
 \RequirePackage{floatrow}

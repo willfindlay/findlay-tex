@@ -112,8 +112,8 @@
     rulecolor        = \color{listing-rule},
     frameround       = ffff,
     tabsize          = 4,
-    aboveskip        = 0.5em,
-    belowskip        = 0.5em,
+    aboveskip        = 1em,
+    belowskip        = 1em,
     abovecaptionskip = 0em,
     belowcaptionskip = 0em,
     keywordstyle     = {\color{listing-keyword}\bfseries},
@@ -177,7 +177,7 @@
     l%
     <{\egroup}%
 }
-\newcommand*\rot{\multicolumn{1}{R{45}{1em}}}%
+\newcommand*\rot[1]{\multicolumn{1}{R{#1}{1em}}}%
 
 \RequirePackage{wasysym}
 \newcommand{\fullc}{\CIRCLE}
@@ -240,4 +240,5 @@
 
 % Commands
 \providecommand{\todo}[1]{{\bfseries\color{ACMRed}[#1]}}
-\providecommand{\etal}{{\itshape et al.}~}
+\providecommand{\note}[1]{{\bfseries\color{ACMGreen}[#1]}}
+\providecommand{\etal}{{\itshape et al.}}

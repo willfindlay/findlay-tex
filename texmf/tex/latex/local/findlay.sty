@@ -2,6 +2,8 @@
 % Preamble
 % ==============================================================================
 
+% add \MyTitle, \MyAuthor and \MyDate
+\RequirePackage{authoraftertitle}
 \RequirePackage{etoolbox}
 
 % ==============================================================================
@@ -78,8 +80,8 @@
     xrightmargin      = 1em,
     framexrightmargin = 1em,
     backgroundcolor  = \color{listing-background},
-    numberstyle      = \color{listing-numbers}\ttfamily\normalsize\lst@ifdisplaystyle\footnotesize\fi,
-    basicstyle       = \ttfamily\normalsize\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
+    numberstyle      = \color{listing-numbers}\ttfamily\lst@ifdisplaystyle\footnotesize\fi,
+    basicstyle       = \ttfamily\lst@ifdisplaystyle\footnotesize\singlespacing\fi,
     breaklines       = true,
     frame            = single,
     framesep         = 0.19em,
@@ -138,6 +140,10 @@
 \newcommand{\halfc}{\LEFTcircle}
 \newcommand{\emptyc}{\Circle}
 
+% ==============================================================================
+% Misc.
+% ==============================================================================
+
 % center floats by default
 \makeatletter
 \g@addto@macro\@floatboxreset{\centering}
@@ -176,12 +182,28 @@
   }
 }
 
-% ==============================================================================
-% Misc.
-% ==============================================================================
+% add \enquote
+\usepackage{csquotes}
 
 % so we can splice in PDFs
 \RequirePackage{pdfpages}
 
 % for \ifoptionfinal
 \RequirePackage{ifdraft}
+
+% spacing for paragraphs
+\RequirePackage{titlesec}
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{\theparagraph}{9em}{}[.]
+\titleformat{\subparagraph}[runin]{\normalfont\normalsize\itshape\/}{\thesubparagraph}{1em}{}[.]
+
+% bibliography
+\RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=3, minbibnames=2, sorting=nyt, dashed=false, giveninits=false]{biblatex}
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+\emergencystretch=1em
+
+% ==============================================================================
+% Custom Commands
+% ==============================================================================
+
+\providecommand{\todo}[1]{{\bfseries\color{red}[#1]}}
+\providecommand{\etal}{{\textit{et al\@.}}}

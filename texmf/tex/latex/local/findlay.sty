@@ -144,6 +144,9 @@
 % Misc.
 % ==============================================================================
 
+% comment environments
+\RequirePackage{comment}
+
 % center floats by default
 \makeatletter
 \g@addto@macro\@floatboxreset{\centering}
@@ -194,7 +197,7 @@
 % spacing for paragraphs
 \RequirePackage{titlesec}
 \titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{\theparagraph}{9em}{}[.]
-\titleformat{\subparagraph}[runin]{\normalfont\normalsize\itshape\/}{\thesubparagraph}{1em}{}[.]
+\titleformat{\subparagraph}[runin]{\normalfont\normalsize\itshape}{\thesubparagraph}{1em}{}[.]
 
 % bibliography
 \RequirePackage[backend=biber, style=ieee, citestyle=numeric, sortcites=true, maxbibnames=3, minbibnames=2, sorting=nyt, dashed=false, giveninits=false]{biblatex}
